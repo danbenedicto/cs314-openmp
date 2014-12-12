@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	
-	#pragma omp parallel for shared(num_hf, wl, bv_size) private(j, hash) schedule(guided)
+	#pragma omp parallel for private(j, hash) schedule(guided)
 	for (i = 0; i < wl_size; i++) {
 		for (j = 0; j < num_hf; j++) {
 			hash = hf[j] (get_word(wl, i));
